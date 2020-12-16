@@ -1,6 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { crearNuevoProductoAction } from "../Actions/ProductosActions";
 
 const NuevoProducto = () => {
+  const [nombre, guardarNombre] = useState("");
+  const [precio, guardarPrecio] = useState(0);
+
+  const dispatch = useDispatch();
+
+  const agregarProducto = (producto) =>
+    dispatch(crearNuevoProductoAction(producto));
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (nombre.trim === "" || precio <= 0) {
+      return;
+    }
+    agregarProducto({
+      nombre,
+      precio,
+    });
+  };
+
   return (
     <div className="row justify-content-center">
       <div className="col md-8">
@@ -9,7 +30,7 @@ const NuevoProducto = () => {
             <h2 className="text-center mb-4 font-weight-bold">
               Agregar Nuevo Producto
             </h2>
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <label>Nombre Producto</label>
                 <input
@@ -17,6 +38,8 @@ const NuevoProducto = () => {
                   className="form-control"
                   name="nombre"
                   placeholder="Nombre Producto"
+                  value={nombre}
+                  onChange={(e) => guardarNombre(e.target.value)}
                 />
               </div>
               <div className="form-group">
@@ -26,6 +49,8 @@ const NuevoProducto = () => {
                   className="form-control"
                   name="precio"
                   placeholder="Precio Producto"
+                  value={precio}
+                  onChange={(e) => guardarPrecio(Number(e.target.value))}
                 />
               </div>
               <div className="form-group">
