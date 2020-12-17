@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { crearNuevoProductoAction } from "../Actions/ProductosActions";
 
-const NuevoProducto = () => {
+const NuevoProducto = ({ history }) => {
   const [nombre, guardarNombre] = useState("");
   const [precio, guardarPrecio] = useState(0);
 
   const dispatch = useDispatch();
+
+  const cargando = useSelector((state) => state.productos.loading);
+  const error = useSelector((state) => state.productos.error);
 
   const agregarProducto = (producto) =>
     dispatch(crearNuevoProductoAction(producto));
@@ -20,6 +23,7 @@ const NuevoProducto = () => {
       nombre,
       precio,
     });
+    history.push("/");
   };
 
   return (
@@ -62,6 +66,12 @@ const NuevoProducto = () => {
                 </button>
               </div>
             </form>
+            {cargando ? <p>cargando....</p> : null}
+            {error ? (
+              <p className="alert alert-danger p2 mt-4 text-center">
+                Hubo un error
+              </p>
+            ) : null}
           </div>
         </div>
       </div>

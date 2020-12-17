@@ -22,9 +22,10 @@ const initialState = {
 export default function (state = initialState, action) {
   switch (action.type) {
     case AGREGAR_PRODUCTO:
+    case COMENZAR_DESCARGA_PRODUCTOS:
       return {
         ...state,
-        loading: true,
+        loading: action.payload,
       };
     case AGREGAR_PRODUCTO_EXITO:
       return {
@@ -38,6 +39,7 @@ export default function (state = initialState, action) {
         loading: false,
         error: action.payload,
       };
+
     default:
       return state;
   }

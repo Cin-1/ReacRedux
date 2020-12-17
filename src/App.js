@@ -6,7 +6,7 @@ import NuevoProducto from "./components/NuevoProducto";
 import Productos from "./components/Productos";
 import { Provider } from "react-redux";
 import store from "./store";
-//server line json-server db.json --port 4000
+//server line //json-server db.json --port 4000
 function App() {
   return (
     <Router>
