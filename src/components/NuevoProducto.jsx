@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { crearNuevoProductoAction } from "../Actions/ProductosActions";
+import { mostrarAlerta, ocultarAlertaAction } from "../Actions/alertaActions";
 
 const NuevoProducto = ({ history }) => {
   const [nombre, guardarNombre] = useState("");
@@ -10,6 +11,7 @@ const NuevoProducto = ({ history }) => {
 
   const cargando = useSelector((state) => state.productos.loading);
   const error = useSelector((state) => state.productos.error);
+  const alerta = useSelector((state) => state.alerta.alerta);
 
   const agregarProducto = (producto) =>
     dispatch(crearNuevoProductoAction(producto));
@@ -17,8 +19,14 @@ const NuevoProducto = ({ history }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (nombre.trim === "" || precio <= 0) {
+      const alert = {
+        mgs: "Ambos campos son obligatorios",
+        classes: "alert alert-danger text-center text-uppercase p3",
+      };
+      dispatch(mostrarAlerta(alert));
       return;
     }
+    dispatch(ocultarAlertaAction());
     agregarProducto({
       nombre,
       precio,
@@ -34,6 +42,7 @@ const NuevoProducto = ({ history }) => {
             <h2 className="text-center mb-4 font-weight-bold">
               Agregar Nuevo Producto
             </h2>
+            {alerta ? <p className={alerta.classes}>{alerta.mgs}</p> : null}{" "}
             <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <label>Nombre Producto</label>

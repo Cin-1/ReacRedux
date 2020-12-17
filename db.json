@@ -1,69 +1,49 @@
 {
   "productos": [
     {
-      "id": 1,
-      "nombre": "Jugo de Zanahoria",
-      "precio": "31111"
+      "nombre": "costilas",
+      "precio": "999",
+      "id": 23
     },
     {
-      "id": 2,
-      "nombre": "Jugo de Naranja",
-      "precio": "1"
+      "nombre": "cocki",
+      "precio": "22222",
+      "id": 24
     },
     {
-      "nombre": "Jugo de Naranja",
-      "precio": "300",
-      "id": 3
+      "nombre": "monito",
+      "precio": 111,
+      "id": 25
     },
     {
-      "nombre": "Rib Eye 800g",
-      "precio": "200",
-      "id": 4
-    },
-    {
-      "nombre": "Jugo de Fresa",
-      "precio": "200",
-      "id": 5
-    },
-    {
-      "nombre": "ojota",
-      "precio": 34,
-      "id": 6
-    },
-    {
-      "nombre": "moco azul",
-      "precio": 900,
-      "id": 7
+      "nombre": "2222225",
+      "precio": 33,
+      "id": 26
     },
     {
       "nombre": "aaa",
-      "precio": 900,
-      "id": 8
+      "precio": 1,
+      "id": 27
     },
     {
       "nombre": "tulkas",
-      "precio": 20,
-      "id": 9
+      "precio": 3000,
+      "id": 28
     },
     {
-      "nombre": "aaa",
-      "precio": 33,
-      "id": 10
+      "nombre": "tulkas",
+      "precio": 99,
+      "id": 29
     },
     {
-      "nombre": "aaa",
-      "precio": 33,
-      "id": 11
-    },
-    {
-      "nombre": "55",
-      "precio": 3,
-      "id": 12
-    },
-    {
-      "nombre": "sefsdf",
+      "nombre": "111",
       "precio": 11,
-      "id": 13
+      "id": 30
+    },
+    {
+      "nombre": "aaa",
+      "precio": 1,
+      "id": 31
     }
   ]
 }
